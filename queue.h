@@ -1,7 +1,9 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#define INICIOVAL(P) ((P) -> queue[(P) -> inicio])
+#include "linkedlist.h"
+
+#define INICIO(P) ((P) -> queue[(P) -> inicio])
 #define TAMANHO(P) ((P) -> nmax)
 
 
@@ -26,5 +28,8 @@ BOOL queue_is_empty(QUEUE *f);
 BOOL queue_is_full(QUEUE *f);
 // liberta fila
 void free_queue(QUEUE *f);
+
+
+NODE *queue_to_list(QUEUE *q);
 
 #endif

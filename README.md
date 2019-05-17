@@ -10,7 +10,7 @@
 ## Funções QUEUE
 
 #### Construtor
-- [ ] (```nova_fila()```) - Cria uma nova fila do nada
+- [X] (```QUEUE *mk_empty_queue(int n)```) - Cria uma nova fila do nada
 
 ----
 #### Selectores
@@ -19,8 +19,8 @@
 
 ----
 #### Modificadores
-- [ ] (```coloca()```) - Inserção no fim da fila (retorna fila resultante)
-- [ ] (```retira()```) - Retira o elemento no início da fila (retorna fila resultante, se for fazia retorna NULL)
+- [x] (```void enqueue(int v,QUEUE *q)```) - Inserção no fim da fila (retorna fila resultante)
+- [x] (```int dequeue(QUEUE *q)```) - Retira o elemento no início da fila (retorna fila resultante, se for fazia retorna NULL)
 
 ----
 #### Transformadores
