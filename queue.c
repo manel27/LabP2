@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "queue.h"
 
+static void queue_exit_error(char *msg);
+
 static void queue_exit_error(char *msg)
 {
   fprintf(stderr,"Error: %s.\n",msg);
@@ -67,6 +69,28 @@ int dequeue(QUEUE *q)
     q -> inicio = -1; q -> fim = 0;
   }
   return aux;
+}
+
+//filas iguais para tamanhos iguais
+BOOL filas_iguais(QUEUE *q1, QUEUE *q2){
+  int i, aux1, aux2, size;
+  if(queue_is_empty(q1) == queue_is_empty(q2)){
+    return TRUE;
+  }
+  if(q1->nmax != q2->nmax){
+    return FALSE;
+  }
+  size = TAMANHO(q1);
+  int aux1 = q1 -> inicio;
+  int aux2 = q2 -> inicio;
+
+  while(aux1 != q1-> fim && aux2 != q2-> fim){
+    aux1 = (aux1+1)%(size);
+    aux2 = (aux2+1)%(size);
+    if(q1->queue[aux1] != q2->queue[aux2])
+      return FALSE;
+  }
+
 }
 
 // verificar se a fila est� vazia

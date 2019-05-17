@@ -1,7 +1,7 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#define INICIO(P) ((P) -> queue[(P) -> inicio])
+#define INICIOVAL(P) ((P) -> queue[(P) -> inicio])
 #define TAMANHO(P) ((P) -> nmax)
 
 
@@ -26,7 +26,5 @@ BOOL queue_is_empty(QUEUE *f);
 BOOL queue_is_full(QUEUE *f);
 // liberta fila
 void free_queue(QUEUE *f);
-// error
-static void queue_exit_error(char *msg);
 
 #endif
