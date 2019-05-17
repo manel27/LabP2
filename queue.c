@@ -10,7 +10,6 @@ static void queue_exit_error(char *msg) {
   exit(EXIT_FAILURE);
 }
 
-
 // criar fila com capacidade para n inteiros
 QUEUE *mk_empty_queue(int n)
 {

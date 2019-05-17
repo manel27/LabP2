@@ -3,6 +3,10 @@
 
 #include "linkedlist.h"
 
+#define INICIO(P) ((P) -> queue[(P) -> inicio])
+#define TAMANHO(P) ((P) -> nmax)
+
+
 typedef enum {FALSE,TRUE} BOOL;
 
 
