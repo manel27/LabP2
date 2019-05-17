@@ -1,12 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include "queue.h"
 
-static void queue_exit_error(char *msg)
-{
+// error
+static void queue_exit_error(char *msg);
+
+static void queue_exit_error(char *msg) {
   fprintf(stderr,"Error: %s.\n",msg);
   exit(EXIT_FAILURE);
 }
-
-
 
 
 // criar fila com capacidade para n inteiros
@@ -38,8 +40,7 @@ void free_queue(QUEUE *q)
 
 
 // colocar valor na fila
-void enqueue(int v,QUEUE *q)
-{
+void enqueue(int v,QUEUE *q) {
   if (queue_is_full(q) == TRUE)
     queue_exit_error("fila sem lugar");
 
@@ -53,8 +54,7 @@ void enqueue(int v,QUEUE *q)
 }
 
 // retirar valor na fila
-int dequeue(QUEUE *q)
-{
+int dequeue(QUEUE *q) {
   int aux;
   if (queue_is_empty(q) == TRUE)
     queue_exit_error("fila sem valores");
@@ -91,3 +91,27 @@ BOOL queue_is_full(QUEUE *q)
 }
 
 
+NODE *queue_to_list(QUEUE *q) {
+
+  NODE *lista = NULL;
+
+  if (q -> queue == NULL) {
+    queue_exit_error("fila mal construida");
+  }
+
+  if (queue_is_empty(q)==TRUE) {
+    return lista;
+  }
+
+  int aux = q -> inicio;
+
+  while (aux!=q->fim) {
+
+    lista=add_last(lista,q -> queue[aux]);
+    aux = (aux+1)%(q->nmax);
+
+  }
+
+  return lista;
+
+}

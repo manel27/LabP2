@@ -1,6 +1,8 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
+#include "linkedlist.h"
+
 typedef enum {FALSE,TRUE} BOOL;
 
 
@@ -22,7 +24,8 @@ BOOL queue_is_empty(QUEUE *f);
 BOOL queue_is_full(QUEUE *f);
 // liberta fila
 void free_queue(QUEUE *f);
-// error
-static void queue_exit_error(char *msg);
+
+
+NODE *queue_to_list(QUEUE *q);
 
 #endif
