@@ -1,13 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include "queue.h"
 
 static void queue_exit_error(char *msg)
 {
   fprintf(stderr,"Error: %s.\n",msg);
   exit(EXIT_FAILURE);
 }
-
-
-
 
 // criar fila com capacidade para n inteiros
 QUEUE *mk_empty_queue(int n)
