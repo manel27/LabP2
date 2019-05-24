@@ -7,7 +7,7 @@
 #define TAMANHO(P) ((P) -> nmax)
 
 
-typedef enum {FALSE,TRUE} BOOL;
+typedef enum bool{FALSE,TRUE} BOOL;
 
 
 typedef struct fila {
