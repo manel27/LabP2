@@ -14,7 +14,7 @@
 
 ----
 #### Selectores
-- [ ] (```inicio()```) - Elemento no inicio da fila
+- [x] (```inicio()```) - Elemento no inicio da fila
 - [ ] (```comprimento()```) - Devolve o nº de elementos da fila
 
 ----
@@ -24,15 +24,15 @@
 
 ----
 #### Transformadores
-- [ ] (```fila_para_lista()```) - Retorna elementos da queue numa lista ligada
+- [x] (```fila_para_lista()```) - Retorna elementos da queue numa lista ligada
 
 ----
 #### Reconhecedores
-- [ ] (```e_fila()```) - Recebe como argumento um elemento de qualquer tipo e verifica se é o tipo do tipo fila
-- [ ] (```fila_vazia()```) - Decide se é vazia
+- [x] (```e_fila()```) - Recebe como argumento um elemento de qualquer tipo e verifica se é o tipo do tipo fila
+- [x] (```fila_vazia()```) - Decide se é vazia
 
 ----
 #### Testes
-- [ ] (```filas_iguais()```) - Recebe duas filas e decide se são iguais
+- [x] (```filas_iguais()```) - Recebe duas filas e decide se são iguais
 
 ----
