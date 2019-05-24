@@ -15,7 +15,7 @@
 ----
 #### Selectores
 - [x] (```inicio()```) - Elemento no inicio da fila
-- [ ] (```comprimento()```) - Devolve o nº de elementos da fila
+- [x] (```comprimento()```) - Devolve o nº de elementos da fila
 
 ----
 #### Modificadores
