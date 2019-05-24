@@ -17,8 +17,15 @@ int main() {
   enqueue(5,q2);
   enqueue(5,q2);
   enqueue(5,q2);
+  enqueue(5,q2);
+  enqueue(5,q2);
+  dequeue(q2);
+  dequeue(q2);
+  dequeue(q2);
+  enqueue(5,q2);
 
-  printf("filas iguais? %d\n", filas_iguais(q1,q2));
+
+  printf("comprimento? %d\n", comprimento(q2));
 
   return 0;
 

@@ -93,6 +93,16 @@ BOOL filas_iguais(QUEUE *q1, QUEUE *q2){
   return TRUE;
 }
 
+int comprimento(QUEUE *q){
+  if(queue_is_empty(q))
+    return 0;
+  if(INICIO(q)<FIM(q))
+    return (FIM(q) - INICIO(q));
+  else{
+    return ((TAMANHO(q) - INICIO(q) + FIM(q)));
+  }
+}
+
 // verificar se a fila est� vazia
 BOOL queue_is_empty(QUEUE *q)
 {

@@ -3,9 +3,10 @@
 
 #include "linkedlist.h"
 
-#define INICIO(P) ((P) -> queue[(P) -> inicio])
+#define TOPO(P) ((P) -> queue[(P) -> inicio])
 #define TAMANHO(P) ((P) -> nmax)
-
+#define INICIO(P) ((P) -> inicio)
+#define FIM(P) ((P) -> fim)
 
 typedef enum bool{FALSE,TRUE} BOOL;
 
@@ -29,7 +30,10 @@ BOOL queue_is_full(QUEUE *f);
 // liberta fila
 void free_queue(QUEUE *f);
 
-
+// fila para lista ligada
 NODE *queue_to_list(QUEUE *q);
+// verifica se listas sao iguais
 BOOL filas_iguais(QUEUE *q1, QUEUE *q2);
+// retorna o numero de elementos na fila
+int comprimento(QUEUE *q);
 #endif
