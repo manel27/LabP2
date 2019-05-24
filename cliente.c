@@ -4,5 +4,5 @@
 
 char* print_cliente(CLIENTE *c){
     char *str;
-    sprintf(str, "[%d:%d]", ITEMS(c), N_CICLO(c), ENTRADA(c));
+    sprintf(str, "[%d:%d]", ITEMS(c), ENTRADA(c));
 }
