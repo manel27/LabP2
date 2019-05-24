@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "queue.h"
 
 // error
@@ -146,5 +147,21 @@ NODE *queue_to_list(QUEUE *q) {
   }
 
   return lista;
+
+}
+
+char *queue2str(QUEUE *q) {
+
+    char *res;
+
+    int aux = q->inicio;
+
+    while(aux!=q->fim) {
+        strcat(res,'<');
+        char *aux;
+        sprintf()
+        strcat(res,'')
+
+    }
 
 }
