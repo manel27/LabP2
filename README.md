@@ -10,7 +10,7 @@
 ## Funções QUEUE
 
 #### Construtor
-- [X] (```QUEUE *mk_empty_queue(int n)```) - Cria uma nova fila do nada
+- [x] (```QUEUE *mk_empty_queue(int n)```) - Cria uma nova fila do nada
 
 ----
 #### Selectores
