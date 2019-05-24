@@ -71,7 +71,7 @@ int dequeue(QUEUE *q) {
 
 //filas iguais para tamanhos iguais
 BOOL filas_iguais(QUEUE *q1, QUEUE *q2){
-  int i, aux1, aux2, size;
+  int aux1, aux2, size;
   if(queue_is_empty(q1) == queue_is_empty(q2)){
     return TRUE;
   }
@@ -79,8 +79,8 @@ BOOL filas_iguais(QUEUE *q1, QUEUE *q2){
     return FALSE;
   }
   size = TAMANHO(q1);
-  int aux1 = q1 -> inicio;
-  int aux2 = q2 -> inicio;
+  aux1 = q1 -> inicio;
+  aux2 = q2 -> inicio;
 
   while(aux1 != q1-> fim && aux2 != q2-> fim){
     aux1 = (aux1+1)%(size);
@@ -88,7 +88,7 @@ BOOL filas_iguais(QUEUE *q1, QUEUE *q2){
     if(q1->queue[aux1] != q2->queue[aux2])
       return FALSE;
   }
-
+  return TRUE;
 }
 
 // verificar se a fila est� vazia

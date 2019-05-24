@@ -5,15 +5,19 @@
 
 int main() {
 
-  QUEUE *q = mk_empty_queue(10);
+  QUEUE *q1 = mk_empty_queue(10);
+  QUEUE *q2 = mk_empty_queue(20);
 
-  enqueue(2,q);
-  enqueue(3,q);
-  enqueue(1,q);
+  enqueue(2,q1);
+  enqueue(3,q1);
+  enqueue(1,q1);
 
-  NODE *list = queue_to_list(q);
+  enqueue(2,q2);
+  enqueue(3,q2);
+  enqueue(1,q2);
+  enqueue(4,q2);
 
-  print_llist(list);
+  printf("teste: %d\n", filas_iguais(q1,q2));
 
   return 0;
 

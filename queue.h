@@ -31,5 +31,5 @@ void free_queue(QUEUE *f);
 
 
 NODE *queue_to_list(QUEUE *q);
-
+BOOL filas_iguais(QUEUE *q1, QUEUE *q2);
 #endif
