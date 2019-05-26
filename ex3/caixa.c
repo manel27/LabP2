@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 #include "caixa.h"
 
 
-CAIXA *init(int numero) {
+CAIXA *nova_caixa(int numero) {
 
     CAIXA *c = (CAIXA *) malloc(sizeof(CAIXA));
 
@@ -36,25 +37,28 @@ void muda_info_t_espera(CAIXA *c, int t) {
     info_t_espera(c)+=t;
 }
 
-char *repr(CAIXA c) {
+char *repr_caixa(CAIXA *c) {
 
-    char *rep;
-    sprintf(rep, "Caixa %d (%d): %d");
+    char *repr=NULL;
+    sprintf(repr, "Caixa %d (%d): ", num_caixa(c), info_caixa(c));
+    strcat(repr, queue2str(c->fila));
+
+    return repr;
 
 }
 
 
-char * int2str(int n) {
-
-    int ndigits = (int)log10(n)+1;
-    char *res = malloc(sizeof(char)*(ndigits+1));
-    int i;
-    res[ndigits] = '\0';
-    ndigits--;
-    do {
-        res[ndigits--] = (n%10)+'0';
-        n = n/10;
-    } while(n!=0);
-
-    return res;
-}
+// char * int2str(int n) {
+//
+//     int ndigits = (int)log10(n)+1;
+//     char *res = malloc(sizeof(char)*(ndigits+1));
+//     int i;
+//     res[ndigits] = '\0';
+//     ndigits--;
+//     do {
+//         res[ndigits--] = (n%10)+'0';
+//         n = n/10;
+//     } while(n!=0);
+//
+//     return res;
+// }

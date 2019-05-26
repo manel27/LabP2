@@ -150,6 +150,21 @@ NODE *queue_to_list(QUEUE *q) {
 
 }
 
+char * int2str(int n) {
+
+    int ndigits = (int)log10(n)+1;
+    char *res = malloc(sizeof(char)*(ndigits+1));
+    int i;
+    res[ndigits] = '\0';
+    ndigits--;
+    do {
+        res[ndigits--] = (n%10)+'0';
+        n = n/10;
+    } while(n!=0);
+
+    return res;
+}
+
 char *queue2str(QUEUE *q) {
 
     char *res;
@@ -157,11 +172,13 @@ char *queue2str(QUEUE *q) {
     int aux = q->inicio;
 
     while(aux!=q->fim) {
-        strcat(res,'<');
-        char *aux;
-        sprintf()
-        strcat(res,'')
-
+        strcat(res,'< ');
+        strcat(res,int2str(q->queue[aux]));
+        strcat(res,' ');
     }
+
+    strcat(res,'<');
+
+    return res;
 
 }

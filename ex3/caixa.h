@@ -29,11 +29,12 @@ typedef struct caixa {
 
 } CAIXA;
 
+CAIXA *nova_caixa(int numero);
 void muda_info_caixa(CAIXA *c, int valor);
 void aumenta_clientes_atendidos(CAIXA *c);
 void muda_info_produtos(CAIXA *c, int produtos);
 void muda_info_t_espera(CAIXA *c, int t);
-
+char *repr_caixa(CAIXA *c);
 
 
 
