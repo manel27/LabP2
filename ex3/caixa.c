@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <string.h>
+
+
 #include "caixa.h"
 
 
@@ -37,28 +38,18 @@ void muda_info_t_espera(CAIXA *c, int t) {
     info_t_espera(c)+=t;
 }
 
+
 char *repr_caixa(CAIXA *c) {
 
-    char *repr=NULL;
-    sprintf(repr, "Caixa %d (%d): ", num_caixa(c), info_caixa(c));
-    strcat(repr, queue2str(c->fila));
+    char *repr =NULL;
+
+    cats(&repr,"Caixa ");
+    cats(&repr,int2str(num_caixa(c)));
+    cats(&repr," (");
+    cats(&repr,int2str(info_caixa(c)));
+    cats(&repr,"): ");
+    cats(&repr,queue2str(c->fila));
 
     return repr;
 
 }
-
-
-// char * int2str(int n) {
-//
-//     int ndigits = (int)log10(n)+1;
-//     char *res = malloc(sizeof(char)*(ndigits+1));
-//     int i;
-//     res[ndigits] = '\0';
-//     ndigits--;
-//     do {
-//         res[ndigits--] = (n%10)+'0';
-//         n = n/10;
-//     } while(n!=0);
-//
-//     return res;
-// }

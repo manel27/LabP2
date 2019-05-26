@@ -16,8 +16,13 @@ CLIENTE *novo_cliente(int items, int entrada) {
 
 char* repr_cliente(CLIENTE *c) {
 
-    char *str=NULL;
-    sprintf(str, " [%d:%d]", artigos(c), tempo_entrada(c));
+    char *res=NULL;
 
-    return str;
+    cats(&res,"[");
+    cats(&res,int2str(artigos(c)));
+    cats(&res,":");
+    cats(&res,int2str(tempo_entrada(c)));
+    cats(&res,"]");
+
+    return res;
 }

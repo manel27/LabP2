@@ -3,6 +3,7 @@
 
 #include "linkedlist.h"
 #include "cliente.h"
+#include "aux_strings.h"
 
 #define TOPO(P) ((P) -> queue[(P) -> inicio])
 #define TAMANHO(P) ((P) -> nmax)

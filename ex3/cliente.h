@@ -1,6 +1,8 @@
 #ifndef CLIENTE_H
 #define CLIENTE_H
 
+#include "aux_strings.h"
+
 #define artigos(P) ((P) -> items)
 #define tempo_entrada(P) ((P) -> entrada)
 

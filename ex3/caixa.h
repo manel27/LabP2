@@ -2,6 +2,7 @@
 # define CASHIER_H
 
 #include "queue.h"
+#include "aux_strings.h"
 
 #define QSize 20
 #define MINPC 1
@@ -34,6 +35,7 @@ void muda_info_caixa(CAIXA *c, int valor);
 void aumenta_clientes_atendidos(CAIXA *c);
 void muda_info_produtos(CAIXA *c, int produtos);
 void muda_info_t_espera(CAIXA *c, int t);
+char *int2str(int n);
 char *repr_caixa(CAIXA *c);
 
 

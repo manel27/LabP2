@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "math.h"
 #include "caixa.h"
 
 void simula_supermercado(int afluencia, int apetencia, int n_caixas, int ciclos);
@@ -8,6 +9,7 @@ void trata_clientes(int tempo, CAIXA **caixas, int n_caixas);
 void processa_resultados(CAIXA **caixas, int n_caixas);
 void mostra_caixas(CAIXA **caixas, int n_caixas);
 BOOL existem_caixas_com_fila(CAIXA **caixas, int n_caixas);
+char * int2str(int n);
 
 int main() {
 
@@ -67,14 +69,14 @@ void simula_supermercado(int afluencia, int apetencia, int n_caixas, int ciclos)
             srand(time(0));
             int nb_cx = ((double) rand() / (double)RAND_MAX) * n_caixas; //seleciona a caixa
 
+
+
             enqueue(c,fila_caixa(caixas[nb_cx]));
 
             mostra_caixas(caixas,n_caixas);
 
+
         }
-
-
-
 
     }
 
@@ -124,13 +126,13 @@ void trata_clientes(int tempo, CAIXA **caixas, int n_caixas) {
                 dequeue(fila_caixa(caixas[i])); //o cliente sai da fila
             }
 
-            else {
+        }
 
-                // para as caixas vazias atualiza o tempo potencial para atendimento
+        else {
 
-                muda_info_caixa(caixas[i],tempo);
+            // para as caixas vazias atualiza o tempo potencial para atendimento
 
-            }
+            muda_info_caixa(caixas[i],tempo);
 
         }
 
@@ -185,3 +187,18 @@ BOOL existem_caixas_com_fila(CAIXA **caixas, int n_caixas) {
     return FALSE;
 
 }
+
+// char *int2str(int n) {
+//
+//     int ndigits = (int)log10(n)+1;
+//     char *res = malloc(sizeof(char)*(ndigits+1));
+//     int i;
+//     res[ndigits] = '\0';
+//     ndigits--;
+//     do {
+//         res[ndigits--] = (n%10)+'0';
+//         n = n/10;
+//     } while(n!=0);
+//
+//     return res;
+// }

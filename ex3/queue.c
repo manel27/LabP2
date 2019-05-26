@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "queue.h"
+
 
 // error
 static void queue_exit_error(char *msg);
@@ -150,34 +152,25 @@ NODE *queue_to_list(QUEUE *q) {
 
 }
 
-// char * int2str(int n) {
-//
-//     int ndigits = (int)log10(n)+1;
-//     char *res = malloc(sizeof(char)*(ndigits+1));
-//     int i;
-//     res[ndigits] = '\0';
-//     ndigits--;
-//     do {
-//         res[ndigits--] = (n%10)+'0';
-//         n = n/10;
-//     } while(n!=0);
-//
-//     return res;
-// }
-//
+
 char *queue2str(QUEUE *q) {
+
+    if (queue_is_empty(q)) {
+        return "< <";
+    }
 
     char *res=NULL;
 
-    strcat(res,"<");
+    cats(&res,"<");
 
     int aux = q->inicio;
 
     while(aux!=q->fim) {
-        strcat(res,repr_cliente(q->queue[aux]));
+        cats(&res,repr_cliente(q->queue[aux]));
+        aux = (aux+1)%(q->nmax);
     }
 
-    strcat(res," <");
+    cats(&res," <");
 
     return res;
 
