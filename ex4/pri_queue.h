@@ -22,4 +22,7 @@ PRIQUEUE *enqueue(PRIQUEUE *q, int val, PRIORIDADE pri);
 int dequeue(PRIQUEUE *q);
 // aumenta a prioridade do 1º elemento da fila NORMAL
 void promotion(PRIQUEUE *q);
+// imprime a fila
+void print_priqueue(PRIQUEUE *q);
+
 #endif

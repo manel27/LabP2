@@ -3,13 +3,6 @@
 #include <string.h>
 #include "pri_queue.h"
 
-static void queue_exit_error(char *msg);
-
-static void queue_exit_error(char *msg) {
-  fprintf(stderr,"Error: %s.\n",msg);
-  exit(EXIT_FAILURE);
-}
-
 PRIQUEUE *mk_new_priqueue(int val, PRIORIDADE pri){
     PRIQUEUE *q = (PRIQUEUE *) malloc(sizeof(PRIQUEUE));
     VAL(q) = val;
@@ -24,7 +17,7 @@ PRIQUEUE *enqueue(PRIQUEUE *q, int val, PRIORIDADE pri){
     if(q == NULL){
         return mk_new_priqueue(val, pri);
     }
-    if(pri != URGENTE){
+    if(pri == NORMAL){
         while(curr != NULL){
             prev = curr; 
             curr = NXT(curr);
@@ -32,14 +25,60 @@ PRIQUEUE *enqueue(PRIQUEUE *q, int val, PRIORIDADE pri){
         NXT(prev) = mk_new_priqueue(val, pri);
         return q;
     }
-    else{
-        while(curr != NULL && pri == URGENTE){
-            prev = curr;
-            curr = NXT(curr);
+    else{ // tarefa URGENTE
+        if(PRI(q) == NORMAL){
+            PRIQUEUE *new = mk_new_priqueue(val,pri);
+            VAL(new)= VAL(q);
+            NXT(new) = NXT(q);
+            PRI(new) = PRI(q);
+            VAL(q)= val;
+            NXT(q)= new;
+            PRI(q) = pri;
+            return q;
         }
-        PRIQUEUE * new = mk_new_priqueue(val,pri);
-        NXT(new) = NXT(prev);
-        NXT(prev) = new;
-        return q;
+        else{
+            while(curr != NULL && PRI(curr) == URGENTE){
+                prev = curr;
+                curr = NXT(curr);
+            }
+            PRIQUEUE * new = mk_new_priqueue(val,pri);
+            NXT(new) = NXT(prev);
+            NXT(prev) = new;
+            return q;
+        }
     }
+}
+
+int dequeue(PRIQUEUE *q){
+    if(q == NULL){
+        printf("Erro! Lista vazia\n");
+    }
+    int valor = VAL(q);
+    VAL(q) = VAL(NXT(q));
+    NXT(q) = NXT(NXT(q));
+    PRI(q) = PRI(NXT(q));
+    return valor;
+}
+
+void promotion(PRIQUEUE *q){
+    PRIQUEUE *curr = q;
+    if(q == NULL){
+        printf("Fila vazia\n");
+    }
+    while(PRI(curr) == URGENTE){
+        curr = NXT(curr);
+    }
+    PRI(curr) = URGENTE;
+}
+
+void print_priqueue(PRIQUEUE *q){
+    PRIQUEUE *curr = q;
+    printf("-------------------------------------\n");
+    if(q == NULL) printf("Lista vazia\n");
+    while(curr!=NULL){
+        printf("Val: %d && pri: %d\n", VAL(curr), PRI(curr));
+        curr = NXT(curr);
+    }
+    printf("-------------------------------------\n");
+
 }
