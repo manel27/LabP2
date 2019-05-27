@@ -64,6 +64,7 @@ void promotion(PRIQUEUE *q){
     PRIQUEUE *curr = q;
     if(q == NULL){
         printf("Fila vazia\n");
+        return;
     }
     while(PRI(curr) == URGENTE){
         curr = NXT(curr);
